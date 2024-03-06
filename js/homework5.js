@@ -25,12 +25,28 @@ var car = {
     yearProduction: '2020',
     getInfo: function (){
         for (let key in car){
+<<<<<<< HEAD
             console.log(key + ': ' + car[key]);
         }
     }
 }
 car.getInfo()
 car.ownNumber = '3';
+=======
+            if (typeof this[key] !== 'function'){
+                console.log(key + ': ' + car[key]);
+            }
+        }
+    }
+}
+// Виведення інформації про об'єкт
+car.getInfo()
+
+// Додавання нової властивості до об'єкта
+car.ownNumber = '3';
+
+// Виведення інформації про об'єкт з новою властивістю
+>>>>>>> c780c08 (homework5.js)
 car.getInfo()
 
 
@@ -63,6 +79,7 @@ car.getInfo()
 - Додати туди ваше домашне завдання
 - Вислати вашу гілку */
 
+<<<<<<< HEAD
 var salon = {
     haircut : '60 грн',
     shaving: '80 грн',
@@ -87,3 +104,58 @@ salon.price()
 salon.minPrice()
 salon.maxPrice()
 
+=======
+var services = {
+    "стрижка": 60,
+    "гоління": 80,
+    "Миття голови": 100,
+    // Метод для додавання нових послуг
+    addService: function(name, price) {
+        this[name] = price;
+    },
+    // Метод для обчислення загальної вартості послуг
+    price: function() {
+        let total = 0;
+        for (let service in this) {
+            if (typeof this[service] === 'number') {
+                total += this[service];
+            }
+        }
+        return total;
+    },
+    // Метод для знаходження мінімальної вартості послуг
+    minPrice: function() {
+        let min = Number.MAX_VALUE;
+        for (let service in this) {
+            if (typeof this[service] === 'number') {
+                let price = this[service];
+                if (price < min) {
+                    min = price;
+                }
+            }
+        }
+        return min;
+    },
+    // Метод для знаходження максимальної вартості послуг
+    maxPrice: function() {
+        let max = Number.MIN_VALUE;
+        for (let service in this) {
+            if (typeof this[service] === 'number') {
+                let price = this[service];
+                if (price > max) {
+                    max = price;
+                }
+            }
+        }
+        return max;
+    }
+};
+
+// Додавання нової послуги
+services.addService('Розбити скло', 200);
+
+// Виведення результатів
+console.log("Загальна вартість послуг: " + services.price() + " грн");
+console.log("Мінімальна вартість послуг: " + services.minPrice() + " грн");
+console.log("Максимальна вартість послуг: " + services.maxPrice() + " грн");
+>>>>>>> c780c08 (homework5.js)
