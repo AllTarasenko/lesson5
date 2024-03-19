@@ -70,25 +70,56 @@ car.getInfo();
 - Додати туди ваше домашне завдання
 - Вислати вашу гілку */
 
-var car = {
-    color: 'blue',
-    carMake: 'Tesla',
-    model: '3',
-    yearProduction: '2020',
-    getInfo: function() {
-        for (let key in this) {
-            if (typeof this[key] !== 'function') {
-                console.log(key + ": " + this[key]);
+var services = {
+    "стрижка": 60,
+    "гоління": 80,
+    "Миття голови": 100,
+    // Метод для додавання нових послуг
+    addService: function(name, price) {
+        this[name] = price;
+    },
+    // Метод для обчислення загальної вартості послуг
+    price: function() {
+        let total = 0;
+        for (let service in this) {
+            if (typeof this[service] === 'number') {
+                total += this[service];
             }
         }
+        return total;
+    },
+    // Метод для знаходження мінімальної вартості послуг
+    minPrice: function() {
+        let min = Number.MAX_VALUE;
+        for (let service in this) {
+            if (typeof this[service] === 'number') {
+                let price = this[service];
+                if (price < min) {
+                    min = price;
+                }
+            }
+        }
+        return min;
+    },
+    // Метод для знаходження максимальної вартості послуг
+    maxPrice: function() {
+        let max = Number.MIN_VALUE;
+        for (let service in this) {
+            if (typeof this[service] === 'number') {
+                let price = this[service];
+                if (price > max) {
+                    max = price;
+                }
+            }
+        }
+        return max;
     }
 };
 
-// Виведення інформації про об'єкт
-car.getInfo();
+// Додавання нової послуги
+services.addService('Розбити скло', 200);
 
-// Додавання нової властивості до об'єкта
-car.newProperty = 'Нова властивість!';
-
-// Виведення інформації про об'єкт з новою властивістю
-car.getInfo();
+// Виведення результатів
+console.log("Загальна вартість послуг: " + services.price() + " грн");
+console.log("Мінімальна вартість послуг: " + services.minPrice() + " грн");
+console.log("Максимальна вартість послуг: " + services.maxPrice() + " грн");
