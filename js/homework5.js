@@ -23,32 +23,23 @@ var car = {
     carMake: 'Tesla',
     model: '3',
     yearProduction: '2020',
-    getInfo: function (){
-        for (let key in car){
-<<<<<<< HEAD
-            console.log(key + ': ' + car[key]);
-        }
-    }
-}
-car.getInfo()
-car.ownNumber = '3';
-=======
-            if (typeof this[key] !== 'function'){
-                console.log(key + ': ' + car[key]);
+    getInfo: function() {
+        for (let key in this) {
+            if (typeof this[key] !== 'function') {
+                console.log(key + ": " + this[key]);
             }
         }
     }
-}
+};
+
 // Виведення інформації про об'єкт
-car.getInfo()
+car.getInfo();
 
 // Додавання нової властивості до об'єкта
-car.ownNumber = '3';
+car.newProperty = 'Нова властивість!';
 
 // Виведення інформації про об'єкт з новою властивістю
->>>>>>> c780c08 (homework5.js)
-car.getInfo()
-
+car.getInfo();
 
 
 /*ДЗ2 Сума вартості послуг
@@ -79,83 +70,25 @@ car.getInfo()
 - Додати туди ваше домашне завдання
 - Вислати вашу гілку */
 
-<<<<<<< HEAD
-var salon = {
-    haircut : '60 грн',
-    shaving: '80 грн',
-    hairWash: '100 грн',
-    additional: '200 грн',
-    price: function (){
-        let priceHaircut = this.haircut.replace(' грн', '');
-        let priceShaving = this.shaving.replace(' грн', '');
-        let priceHairWash = this.hairWash.replace(' грн', '');
-        let priceAdditional = this.additional.replace(' грн', '');
-        console.log( +priceHaircut + +priceShaving + +priceHairWash + +priceAdditional);
-    },
-    minPrice: function () {
-        console.log('Мінімамьний прайс = ' + this.haircut.replace('грн', '') + 'грн')
-    },
-    maxPrice: function (){
-        console.log('Максымальный прайс = ' + this.additional.replace('грн', '') + 'грн')
-    },
-
-}
-salon.price()
-salon.minPrice()
-salon.maxPrice()
-
-=======
-var services = {
-    "стрижка": 60,
-    "гоління": 80,
-    "Миття голови": 100,
-    // Метод для додавання нових послуг
-    addService: function(name, price) {
-        this[name] = price;
-    },
-    // Метод для обчислення загальної вартості послуг
-    price: function() {
-        let total = 0;
-        for (let service in this) {
-            if (typeof this[service] === 'number') {
-                total += this[service];
+var car = {
+    color: 'blue',
+    carMake: 'Tesla',
+    model: '3',
+    yearProduction: '2020',
+    getInfo: function() {
+        for (let key in this) {
+            if (typeof this[key] !== 'function') {
+                console.log(key + ": " + this[key]);
             }
         }
-        return total;
-    },
-    // Метод для знаходження мінімальної вартості послуг
-    minPrice: function() {
-        let min = Number.MAX_VALUE;
-        for (let service in this) {
-            if (typeof this[service] === 'number') {
-                let price = this[service];
-                if (price < min) {
-                    min = price;
-                }
-            }
-        }
-        return min;
-    },
-    // Метод для знаходження максимальної вартості послуг
-    maxPrice: function() {
-        let max = Number.MIN_VALUE;
-        for (let service in this) {
-            if (typeof this[service] === 'number') {
-                let price = this[service];
-                if (price > max) {
-                    max = price;
-                }
-            }
-        }
-        return max;
     }
 };
 
-// Додавання нової послуги
-services.addService('Розбити скло', 200);
+// Виведення інформації про об'єкт
+car.getInfo();
 
-// Виведення результатів
-console.log("Загальна вартість послуг: " + services.price() + " грн");
-console.log("Мінімальна вартість послуг: " + services.minPrice() + " грн");
-console.log("Максимальна вартість послуг: " + services.maxPrice() + " грн");
->>>>>>> c780c08 (homework5.js)
+// Додавання нової властивості до об'єкта
+car.newProperty = 'Нова властивість!';
+
+// Виведення інформації про об'єкт з новою властивістю
+car.getInfo();
